@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Warna Utama (Primary - Hijau Elegan) -->
+    <color name="primary">#2E7D32</color>      <!-- Forest Green -->
+    <color name="primary_dark">#1B5E20</color> <!-- Darker Green -->
+    <color name="primary_light">#4CAF50</color> <!-- Light Green -->
+
+    <!-- Warna Sekunder (Secondary - Hijau Emerald) -->
+    <color name="secondary">#00897B</color>     <!-- Teal / Emerald -->
+    <color name="secondary_dark">#00695C</color>
+
+    <!-- Warna Background (Putih & Bersih) -->
+    <color name="background_main">#F1F8E9</color> <!-- Light Greenish White -->
+    <color name="background_drawer">#FFFFFF</color>
+    <color name="background_screen">#F9FBE7</color>
+
+    <!-- Warna Teks -->
+    <color name="text_primary">#1B5E20</color>   <!-- Dark Green Text -->
+    <color name="text_secondary">#455A64</color> <!-- Blue Grey Text -->
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Warna Top App Bar -->
+    <color name="top_bar_background">#2E7D32</color>
+    <color name="top_bar_content">#FFFFFF</color>
+
+    <!-- Warna Drawer -->
+    <color name="drawer_header_background">#1B5E20</color>
+    <color name="drawer_header_text">#FFFFFF</color>
+    <color name="drawer_item_selected">#E8F5E9</color>     <!-- Very Light Green -->
+    <color name="drawer_item_selected_text">#2E7D32</color>
+    <color name="drawer_item_unselected_text">#424242</color>
+    <color name="drawer_divider">#C8E6C9</color>
+
+    <!-- Warna Konten Area -->
+    <color name="content_text">#333333</color>
+    <color name="content_card_background">#FFFFFF</color>
+    <color name="content_card_border">#C8E6C9</color>
+
+    <!-- Warna Icon -->
+    <color name="icon_active">#2E7D32</color>
+    <color name="icon_inactive">#9E9E9E</color>
+</resources>
