@@ -1,3 +1,37 @@
+NAMA : FABIO ILHAM MUHAMMAD
+NIM : 23083000111
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/77a5c8af-2021-4ad9-9faf-83d4500af082" width="220">
+  <img src="https://github.com/user-attachments/assets/54222222-be16-40b7-a279-016a31608a0c" width="220">
+  <img src="https://github.com/user-attachments/assets/04a847a6-cbf8-491c-ac67-04537b4e2995" width="220">
+  <img src="https://github.com/user-attachments/assets/9f7aa85d-69cb-4b92-89dc-7756146a2b0e" width="220">
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/12628efd-4bd1-431a-b294-ef7a142e3011" width="220">
+  <img src="https://github.com/user-attachments/assets/7b470e0e-47ee-4a90-a06b-74e97839c6d7" width="220">
+  <img src="https://github.com/user-attachments/assets/77a86048-6e18-4acf-82bd-bb1ba5dc09ba" width="220">
+
+</p>
+
+1. Screen 1 Menampilkan Menu utama
+2. Screen 2 Navigation Drawer menampilkan screen home screen 2 screen 3
+3. Screen 3 tampilan screen 1
+4. Screen 4 Tampilan screen 2
+5. Screen 5 Tampilan screen 3
+6. Screen 6 Tampilan screen 4
+7. Screen 7 Tampilan screen 5
+
+
+
+
+
+
+
+
+
+
 # NavDrawerApp - Simulasi Navigation Drawer
 ## Android Jetpack Compose Project
 
