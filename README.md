@@ -2,21 +2,25 @@ NAMA : FABIO ILHAM MUHAMMAD
 NIM : 23083000111
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/71314be7-0adf-4fe9-8b04-1bd40f32c1ad" width="220">
-  <img src="https://github.com/user-attachments/assets/feaabc03-d7ea-4384-8426-113ca67a6d2e" width="220">
-  <img src="https://github.com/user-attachments/assets/9d730e52-d006-4a48-9a41-6716f0a81235" width="220">
+  <img src="https://github.com/user-attachments/assets/77a5c8af-2021-4ad9-9faf-83d4500af082" width="220">
+  <img src="https://github.com/user-attachments/assets/04a847a6-cbf8-491c-ac67-04537b4e2995" width="220">
+  <img src="https://github.com/user-attachments/assets/9f7aa85d-69cb-4b92-89dc-7756146a2b0e" width="220">
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/7a9d7e60-44d7-479f-aa40-8814f6671768" width="220">
-  <img src="https://github.com/user-attachments/assets/039afbeb-9722-427a-8bea-e8d83563726d" width="220">
+  <img src="https://github.com/user-attachments/assets/12628efd-4bd1-431a-b294-ef7a142e3011" width="220">
+  <img src="https://github.com/user-attachments/assets/7b470e0e-47ee-4a90-a06b-74e97839c6d7" width="220">
+  <img src="https://github.com/user-attachments/assets/77a86048-6e18-4acf-82bd-bb1ba5dc09ba" width="220">
+
 </p>
 
 1. Screen 1 Menampilkan Menu utama
 2. Screen 2 Navigation Drawer menampilkan screen home screen 2 screen 3
 3. Screen 3 tampilan screen 1
 4. Screen 4 Tampilan screen 2
-5. Screen 4 Tampilan screen 3
+5. Screen 5 Tampilan screen 3
+6. Screen 6 Tampilan screen 4
+7. Screen 7 Tampilan screen 5
 
 
 
