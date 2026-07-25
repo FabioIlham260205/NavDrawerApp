@@ -1,15 +1,20 @@
 package com.example.navdrawerapp.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -20,28 +25,22 @@ import com.example.navdrawerapp.ui.theme.*
  * File DrawerContent.kt
  * =====================
  * Komponen ini menampilkan isi dari Navigation Drawer.
- *
- * Navigation Drawer = panel samping yang bisa digeser dari kiri.
- * Berisi daftar menu yang bisa diklik untuk berpindah halaman.
- *
- * Analogi: Seperti daftar isi buku. Klik salah satu bab,
- * maka halaman akan langsung berpindah ke bab tersebut.
  */
 
 // Data class untuk menyimpan informasi setiap item menu drawer
 data class DrawerMenuItem(
-    val screen: Screen,                          // Route tujuan
-    val icon: @Composable () -> Unit,            // Ikon menu
-    val label: String                            // Teks label menu
+    val screen: Screen,
+    val icon: @Composable () -> Unit,
+    val label: String
 )
 
 @Composable
 fun DrawerContent(
-    currentRoute: String?,                       // Route halaman yang sedang aktif
-    onMenuClick: (Screen) -> Unit,               // Callback ketika menu diklik
+    currentRoute: String?,
+    onMenuClick: (Screen) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // Daftar semua menu yang ditampilkan di drawer
+    // Latihan 1b: Ikon yang berbeda untuk setiap menu
     val menuItems = listOf(
         DrawerMenuItem(
             screen = Screen.Screen1,
@@ -50,54 +49,79 @@ fun DrawerContent(
         ),
         DrawerMenuItem(
             screen = Screen.Screen2,
-            icon = { Icon(Icons.Default.List, contentDescription = "Screen 2") },
+            icon = { Icon(Icons.Outlined.Info, contentDescription = "Screen 2") },
             label = "Screen 2"
         ),
         DrawerMenuItem(
             screen = Screen.Screen3,
             icon = { Icon(Icons.Default.Settings, contentDescription = "Screen 3") },
             label = "Screen 3"
+        ),
+        // Latihan 2a: Tambahkan Screen 4 dan Screen 5
+        DrawerMenuItem(
+            screen = Screen.Screen4,
+            icon = { Icon(Icons.Default.Person, contentDescription = "Screen 4") },
+            label = "Screen 4"
+        ),
+        DrawerMenuItem(
+            screen = Screen.Screen5,
+            icon = { Icon(Icons.Default.Favorite, contentDescription = "Screen 5") },
+            label = "Screen 5"
         )
     )
 
-    // Layout utama drawer
     ModalDrawerSheet(
         modifier = modifier,
-        drawerContainerColor = BackgroundDrawer      // Warna background drawer (putih)
+        drawerContainerColor = BackgroundDrawer
     ) {
         // === HEADER DRAWER ===
-        // Area atas drawer dengan background biru gelap
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(160.dp)
-                .background(DrawerHeaderBackground), // Warna biru gelap dari color.xml
-            contentAlignment = Alignment.BottomStart
+                .height(200.dp) // Ukuran diperbesar untuk avatar
+                .background(DrawerHeaderBackground),
+            contentAlignment = Alignment.CenterStart
         ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
+                // Latihan 3a: Foto/Avatar di header drawer
+                Box(
+                    modifier = Modifier
+                        .size(64.dp)
+                        .clip(CircleShape)
+                        .background(Color.White)
+                        .border(2.dp, Color.White, CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Avatar",
+                        modifier = Modifier.size(64.dp),
+                        tint = Primary
+                    )
+                }
+                
+                Spacer(modifier = Modifier.height(12.dp))
+                
                 Text(
-                    text = "Navigation Drawer",
-                    color = DrawerHeaderText,         // Warna putih dari color.xml
-                    fontSize = 22.sp,
+                    text = "NavDrawer App User",
+                    color = DrawerHeaderText,
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
-                Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "Pilih salah satu menu",
-                    color = DrawerHeaderText.copy(alpha = 0.8f), // Putih semi-transparan
+                    text = "Fabioilham321@gmail.com",
+                    color = DrawerHeaderText.copy(alpha = 0.7f),
                     fontSize = 14.sp
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         // === DAFTAR MENU ===
-        // Menampilkan setiap menu item menggunakan loop
         menuItems.forEach { menuItem ->
-            // Cek apakah menu ini sedang aktif (dipilih)
             val isSelected = currentRoute == menuItem.screen.route
 
             NavigationDrawerItem(
@@ -110,15 +134,33 @@ fun DrawerContent(
                 },
                 selected = isSelected,
                 onClick = {
-                    // Panggil callback ketika menu diklik
                     onMenuClick(menuItem.screen)
                 },
+                // Latihan 3b: Badge/Counter untuk item yang aktif
+                badge = {
+                    if (isSelected) {
+                        Surface(
+                            color = Primary,
+                            shape = CircleShape,
+                            modifier = Modifier.size(24.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = "1",
+                                    color = Color.White,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
+                    }
+                },
                 colors = NavigationDrawerItemDefaults.colors(
-                    selectedContainerColor = DrawerItemSelected,          // Background biru terang saat dipilih
-                    selectedTextColor = DrawerItemSelectedText,           // Teks biru saat dipilih
-                    selectedIconColor = IconActive,                       // Ikon biru saat dipilih
-                    unselectedTextColor = DrawerItemUnselectedText,       // Teks abu-abu saat tidak dipilih
-                    unselectedIconColor = IconInactive                    // Ikon abu-abu saat tidak dipilih
+                    selectedContainerColor = DrawerItemSelected,
+                    selectedTextColor = DrawerItemSelectedText,
+                    selectedIconColor = IconActive,
+                    unselectedTextColor = DrawerItemUnselectedText,
+                    unselectedIconColor = IconInactive
                 ),
                 modifier = Modifier.padding(horizontal = 12.dp)
             )
@@ -126,10 +168,9 @@ fun DrawerContent(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Garis pembatas (divider) di bawah menu
         Divider(
             modifier = Modifier.padding(horizontal = 16.dp),
-            color = DrawerDivider                     // Warna abu-abu terang dari color.xml
+            color = DrawerDivider
         )
     }
 }

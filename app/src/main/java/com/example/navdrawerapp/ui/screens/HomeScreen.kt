@@ -105,23 +105,33 @@ fun HomeScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(24.dp)
                 ) {
                     Text(
                         text = "Selamat Datang!",
                         color = TextPrimary,
-                        fontSize = 24.sp,
+                        fontSize = 28.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(12.dp))
                     Text(
-                        text = "Geser dari kiri atau tekan ikon menu\nuntuk membuka Navigation Drawer",
+                        text = "Aplikasi Navigasi Drawer dengan tema hijau yang elegan. Jelajahi menu untuk melihat fitur lainnya.",
                         color = TextSecondary,
-                        fontSize = 14.sp,
+                        fontSize = 16.sp,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(horizontal = 32.dp)
+                        modifier = Modifier.padding(horizontal = 16.dp)
                     )
+                    Spacer(modifier = Modifier.height(24.dp))
+                    Button(
+                        onClick = {
+                            scope.launch { drawerState.open() }
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = Primary)
+                    ) {
+                        Text(text = "Buka Menu Drawer")
+                    }
                 }
             }
         }

@@ -16,39 +16,26 @@ import com.example.navdrawerapp.ui.theme.*
 /**
  * File ScreenContent.kt
  * =====================
- * Composable generik yang dipakai oleh Screen 1, Screen 2, dan Screen 3.
- *
- * Setiap screen memiliki pola yang sama:
- * - TopAppBar dengan tombol back arrow dan judul
- * - Area konten di tengah layar berisi teks
- *
- * Dengan membuat komponen generik ini, kita menghindari duplikasi kode.
- * Prinsip DRY (Don't Repeat Yourself)!
- *
- * Analogi: Seperti template surat. Isi dan judul berubah,
- * tapi formatnya tetap sama.
+ * Composable generik yang dipakai oleh semua Screen.
  */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenContent(
-    title: String,               // Judul yang ditampilkan di TopAppBar (misal "Screen 1")
-    contentText: String,         // Teks konten yang ditampilkan di area isi
-    onBackClick: () -> Unit      // Callback ketika tombol back arrow diklik
+    title: String,
+    description: String,         // Latihan 2b: Deskripsi tambahan
+    buttonText: String = "Klik Saya", // Latihan 2b: Teks tombol
+    onBackClick: () -> Unit
 ) {
-    // Scaffold menyediakan struktur dasar: TopBar + Content area
     Scaffold(
-        // === TOP APP BAR ===
         topBar = {
             TopAppBar(
-                // Judul halaman (misal: "Screen 1")
                 title = {
                     Text(
                         text = title,
                         fontWeight = FontWeight.SemiBold
                     )
                 },
-                // Tombol navigasi back (panah kembali) di sebelah kiri
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(
@@ -57,34 +44,50 @@ fun ScreenContent(
                         )
                     }
                 },
-                // Warna TopAppBar: background biru, teks dan ikon putih
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = TopBarBackground,       // Background biru dari color.xml
-                    titleContentColor = TopBarContent,       // Teks putih dari color.xml
-                    navigationIconContentColor = TopBarContent // Ikon putih dari color.xml
+                    containerColor = TopBarBackground,
+                    titleContentColor = TopBarContent,
+                    navigationIconContentColor = TopBarContent
                 )
             )
         },
-        // Warna background area konten
-        containerColor = BackgroundScreen                    // Background abu-abu terang dari color.xml
+        containerColor = BackgroundScreen
     ) { paddingValues ->
-        // === AREA KONTEN ===
-        // Box mengisi seluruh layar dan menempatkan konten di tengah
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues),                     // Padding dari Scaffold (menghindari overlap TopBar)
-            contentAlignment = Alignment.Center              // Konten ditempatkan di tengah layar
+                .padding(paddingValues),
+            contentAlignment = Alignment.Center
         ) {
-            // Teks konten utama
-            Text(
-                text = contentText,
-                color = ContentText,                         // Warna teks hitam lembut dari color.xml
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Medium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 24.dp)
-            )
+            // Latihan 2b: Column berisi 3 komponen (Judul, Deskripsi, Button)
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier.padding(24.dp)
+            ) {
+                Text(
+                    text = title,
+                    color = TextPrimary,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(12.dp))
+                Text(
+                    text = description,
+                    color = ContentText,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(
+                    onClick = { /* Aksi tombol */ },
+                    colors = ButtonDefaults.buttonColors(containerColor = Primary)
+                ) {
+                    Text(text = buttonText)
+                }
+            }
         }
     }
 }

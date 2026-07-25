@@ -17,11 +17,12 @@ import com.example.navdrawerapp.ui.theme.NavDrawerAppTheme
 
 @Composable
 fun Screen1(
-    onBackClick: () -> Unit      // Fungsi yang dipanggil saat tombol back diklik
+    onBackClick: () -> Unit
 ) {
     ScreenContent(
         title = "Screen 1",
-        contentText = "Ini adalah area konten Screen 1",
+        description = "Selamat datang di Screen Pertama. Ini adalah deskripsi untuk latihan modifikasi UI.",
+        buttonText = "Mulai Latihan",
         onBackClick = onBackClick
     )
 }

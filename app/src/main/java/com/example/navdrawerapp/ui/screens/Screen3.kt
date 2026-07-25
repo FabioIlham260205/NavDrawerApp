@@ -19,7 +19,8 @@ fun Screen3(
 ) {
     ScreenContent(
         title = "Screen 3",
-        contentText = "Ini adalah area konten Screen 3",
+        description = "Screen Ketiga menampilkan eksplorasi lebih lanjut tentang komponen Material3.",
+        buttonText = "Eksplorasi",
         onBackClick = onBackClick
     )
 }

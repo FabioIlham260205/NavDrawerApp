@@ -19,7 +19,8 @@ fun Screen2(
 ) {
     ScreenContent(
         title = "Screen 2",
-        contentText = "Ini adalah area konten Screen 2",
+        description = "Anda berada di Screen Kedua. Di sini kita belajar tentang navigasi antar halaman.",
+        buttonText = "Lanjut Belajar",
         onBackClick = onBackClick
     )
 }
